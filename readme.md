@@ -1,6 +1,6 @@
 # Natural Selection Simulation
 
-This project simulates natural-selection and genetic mutation through dots which travel around a canvas and eat food(smaller green dots).
+This project simulates natural-selection and genetic mutation through dots which travel around a canvas and eat food(smaller green dots). It is heavily influenced by [Primer's youtube channel](https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ), I'd definitely recommend checking it out.
 
 ## Energy
 
@@ -32,3 +32,13 @@ Currently the only two mutable traits are speed and food detection. A dot's move
 
 The dots roam in the day by drawing a invisible circle around them, using the circle-from-midpoint algorithm, and choosing a random point on the circle's circumference. Then moving to said point. Once the day is over, the dots will choose a point along an invisble line along the edge of the canvas, created using the DDA algorithm, and move to the point.
 
+## Contributing
+
+As this project is fairly new, it still has it's fair share of problems. I would really appreciate it if all issues found could be filed so I can work on fixing them.
+
+Pull requests are welcome. For all changes, please open an issue first to discuss what you would like to change. It could also be something minor like a fix for a bug.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
