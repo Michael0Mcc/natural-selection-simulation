@@ -1,3 +1,20 @@
+// World settings
+const WINDOW_WIDTH = 1100;
+const WINDOW_HEIGHT = 760;
+const BOUNDS = 100;
+const GLOBAL_SPEED = 150;
+const DAY_LENGTH = 20000 // 20 seconds
+
+// Entity settings
+const STARTING_ENTITIES = 4;
+const ENTITY_RADIUS = 35;
+const MUTATION_CHANCE = 0.4;
+const BASE_ENERGY = (DAY_LENGTH / 750);
+
+// Food settings
+const FOOD_PER_DAY = 78;
+const FOOD_RADIUS = 25;
+
 let bIsDay = true;
 let day = 0;
 
@@ -8,7 +25,7 @@ function beginDay() {
   console.log("-----------");
   console.log("Time: DAY");
 
-  placeFood(68);
+  placeFood(FOOD_PER_DAY);
 
   entities.forEach(entity => {
     entity.reset();
@@ -40,9 +57,9 @@ function beginDay() {
 
     setTimeout(() => {
       beginDay();
-    }, 10000);
+    }, DAY_LENGTH / 2);
 
-  }, 20000);
+  }, DAY_LENGTH);
 }
 
 function updateWorld() {

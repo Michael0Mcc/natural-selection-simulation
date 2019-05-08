@@ -1,7 +1,7 @@
 class Food {
   constructor(_x, _y) {
     this.pos = createVector(_x, _y);
-    this.r = 25;
+    this.r = FOOD_RADIUS;
   }
 
   eaten(i) {

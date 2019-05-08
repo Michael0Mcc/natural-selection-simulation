@@ -1,13 +1,10 @@
-const BOUNDS = 100;
-const GLOBAL_SPEED = 150;
-
 let entities = [];
 let foods = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < STARTING_ENTITIES; i++) {
     entities[i] = new Entity(1, 0.5);
   }
 
@@ -17,6 +14,11 @@ function setup() {
 
 function draw() {
   background(51);
+
+  if (foods.length == 0) {
+    bIsDay = false;
+  }
+
   entities.forEach(entity => {
     entity.move();
   });

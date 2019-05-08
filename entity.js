@@ -2,7 +2,7 @@ class Entity {
   constructor(_speed, _foodDetection) {
     // Data variables
     this.energyConsumption = 0;
-    this.r = 35;
+    this.r = ENTITY_RADIUS;
 
     let _r = floor(random(drawBounds().length));
     this.pos = createVector(drawBounds()[_r].x, drawBounds()[_r].y);
@@ -11,9 +11,10 @@ class Entity {
     this.m_speed = _speed;
     this.m_foodDetection = _foodDetection;
 
-    this.mutChance = 0.4;
+    this.mutChance = MUTATION_CHANCE;
 
-    this.energy = 15;
+    // Survivability variables
+    this.energy = BASE_ENERGY;
     this.hasEaten = false;
     this.bIsDead = false;
 
@@ -21,6 +22,8 @@ class Entity {
     this.target = createVector(random(BOUNDS, width - BOUNDS), random(BOUNDS, height - BOUNDS));
     this.temp = createVector();
     this.bMoveToEdge = false;
+
+    this.energyConsumption = (this.m_speed * this.m_speed) + (this.m_foodDetection / 1.5);
   }
 
   die() {
@@ -31,7 +34,7 @@ class Entity {
   }
 
   reproduce() {
-    if (((this.energy > 10 && random() < 0.5) || (this.energy > 15)) && this.hasEaten) {
+    if (((this.energy > BASE_ENERGY * 0.66 && random() < 0.5) || (this.energy > BASE_ENERGY)) && this.hasEaten) {
       if (random() < this.mutChance) {
         let speedMut = 1;
         let detectionMut = 1;
@@ -57,12 +60,11 @@ class Entity {
   }
 
   consumeEnergy() {
-    this.energyConsumption = (this.m_speed * this.m_speed) + this.m_foodDetection;
-    this.energy -= (this.m_speed * this.m_speed) + (this.m_foodDetection / 1.5);
+    this.energy -= this.energyConsumption;
   }
 
   reset() {
-    this.energy = 15;
+    this.energy = BASE_ENERGY;
     this.hasEaten = false;
     this.target.set(random(BOUNDS, width - BOUNDS), random(BOUNDS, height - BOUNDS));
   }
