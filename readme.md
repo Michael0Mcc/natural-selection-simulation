@@ -41,4 +41,5 @@ Pull requests are welcome. For all changes, please open an issue first to discus
 Please make sure to update tests as appropriate.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
