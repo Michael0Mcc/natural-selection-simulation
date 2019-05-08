@@ -1,6 +1,6 @@
 # Natural Selection Simulation
 
-This project simulates natural-selection and genetic mutation through dots which travel around a canvas and eat food(smaller green dots). It is heavily influenced by [Primer's youtube channel](https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ), I'd definitely recommend checking it out.
+This project simulates natural-selection and genetic mutation through dots which travel around a canvas and eat food(smaller green dots). You can view a live demo of my project [here](https://michael0mcc.github.io/natural-selection-simulation/). It is heavily influenced by [Primer's youtube channel](https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ), I'd definitely recommend checking it out.
 
 ## Energy
 
@@ -27,6 +27,8 @@ If a dot survives the day and has at least half of the base energy left, it will
 ## Traits
 
 Currently the only two mutable traits are speed and food detection. A dot's movement speed is determined by a constant base speed multiplied by the value of the speed trait. As for food detection, the radius is determined by 125% of the dot's radius multiplied by the square of the value of the food detection trait. Note: The dots can only target food once it has finished moving to it's currently targeted position.
+
+Dot's with a faster movement speed will be colored green, dot's with slower speeds will appear red. Dot's with better food detection will have a blue outline around them, one's with a smaller food detection radius will have a yellow outline.
 
 ## Movement
 
